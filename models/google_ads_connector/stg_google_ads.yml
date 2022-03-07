@@ -58,11 +58,6 @@ models:
         description: "{{ doc('is_most_recent_record') }}"
       - name: source_final_urls
         description: The original list of final urls before being trimmed down.
-        tests:
-          - dbt_expectations.expect_column_values_to_not_match_regex_list:
-              regex_list: ","
-              match_on: any
-              severity: warn
       - name: final_url
         description: The first url in the list of the urls within the final_urls source field.
       - name: base_url
@@ -81,7 +76,7 @@ models:
         description: "{{ doc('utm_content') }}"
       - name: utm_term
         description: "{{ doc('utm_term') }}"
-        
+
   - name: stg_google_ads__ad_stats
     description: Each record represents the daily performance of an ad in Google Ads.
     columns:
